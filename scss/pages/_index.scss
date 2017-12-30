@@ -78,12 +78,6 @@ form .row:first-child .floating-label-form-group {
 		}
 	  }
 	}
-	@media (min-width: 576px) {
-	  margin-bottom: -30px;
-	  .portfolio-item {
-		margin-bottom: 30px;
-	  }
-	}
   }
   
   .portfolio-modal {
@@ -108,15 +102,6 @@ form .row:first-child .floating-label-form-group {
 		font-size: 2rem;
 	  }
 	}
-	@media(min-width: 768px) {
-	  .portfolio-modal-dialog {
-		min-height: 100vh;
-		padding: 5rem;
-		margin: 3rem calc(3rem - 8px);
-		h2 {
-		  font-size: 3rem;
-		}
-	  }
-	}
+
   }
   

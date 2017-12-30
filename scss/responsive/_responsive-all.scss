@@ -1,11 +1,23 @@
-@media screen and (max-width:1302px) and (min-width:425px) {
-	//@include  min-425-max-1302-page-static();
-}
-@media (max-width:1300px) {
-	//@include max-1300-template();
+@media screen and (max-width: 800px) and (orientation: landscape),
+screen and (max-height: 300px) {
+	@include max-with-800-max-height-300();
 }
 
-@media (max-width:1200px) {
-	//@include max-1200-page-urbusiness();
-	
+@media all and (max-width: 900px) {
+	@include max-width-900-header();
 }
+
+@media (min-width:992px) {
+	@include min-992-header();
+}
+
+@media(min-width: 768px) {
+	@include min-768-template();
+}
+
+@media (min-width:567px) {
+	@include min-width-567-template()
+}
+
+
+
