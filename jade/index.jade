@@ -1,13 +1,13 @@
 extend includes/_layout.jade
 block siteinfo
     - var title = "home"
-//- block header
-//-     include includes/_header.jade
+block header
+    include includes/_header.jade
 //- block sideCat
 //-     include includes/components/_side-cat.jade
 //- block breadCrumb
 //-     include includes/components/_breadcrumb.jade
-//- block body
-//-     include includes/_index.jade
-//- block footer
-//-     include includes/_footer.jade
+block body
+    include includes/pages/_index.jade
+block footer
+    include includes/_footer.jade
