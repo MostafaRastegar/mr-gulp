@@ -3,7 +3,7 @@ gulp starter for Front-End Developers
 
 
 <p align="center">
-  <img width="809px" src="http://www.motoriha.com/public_html/sites/default/files/mrgalp.png">
+  <img width="809px" src="http://www.motoriha.com/sites/default/files/mrgalp.png">
 </p>
 
 The best way to get started is with [gulpjs](https://gulpjs.com/):
