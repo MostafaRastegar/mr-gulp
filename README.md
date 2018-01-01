@@ -13,4 +13,4 @@ npm install gulp-cli -g
 npm install
 gulp local
 ```
-after use `gulp local`, open your project on localhost:3000 in default web browser
+after use `gulp local`, open your project on localhost:8080 in default web browser
