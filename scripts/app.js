@@ -1,5 +1,5 @@
-console.log('salam');
+let name = "mostafa";
 
-var salam = function(){
-	console.log('salam')
-}
+let add = (a,b) => {return a+b};
+
+console.log(add(3,3))

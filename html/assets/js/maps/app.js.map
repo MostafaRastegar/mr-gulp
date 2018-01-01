@@ -1,1 +1,1 @@
-{"version":3,"sources":["app.js"],"names":["console","log","salam"],"mappings":"AAAAA,QAAQC,IAAI,SAEZ,IAAIC,MAAQ,WACXF,QAAQC,IAAI","file":"../app.js","sourcesContent":["console.log('salam');\r\n\r\nvar salam = function(){\r\n\tconsole.log('salam')\r\n}"]}
+{"version":3,"sources":["app.js"],"names":["name","a","b","console","add"],"mappings":"aAAA,IAAIA,KAAO,UAAPA,IAAAA,SAAOC,EAAAC,GAAX,OAAAD,EAAAC,GAEAC,QAAIC,IAAMA,IAAA,EAAA","file":"../app.js","sourcesContent":["let name = \"mostafa\";\r\n\r\nlet add = (a,b) => {return a+b};\r\n\r\nconsole.log(add(3,3))\r\n"]}
