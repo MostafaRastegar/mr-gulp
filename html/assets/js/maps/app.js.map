@@ -1,0 +1,1 @@
+{"version":3,"sources":["app.js"],"names":["console","log","salam"],"mappings":"AAAAA,QAAQC,IAAI,SAEZ,IAAIC,MAAQ,WACXF,QAAQC,IAAI","file":"../app.js","sourcesContent":["console.log('salam');\r\n\r\nvar salam = function(){\r\n\tconsole.log('salam')\r\n}"]}

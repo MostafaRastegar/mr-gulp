@@ -1,48 +1,64 @@
-var gulp        = require('gulp');
-	browserSync = require('browser-sync').create();
-	reload      = browserSync.reload;
-	sass 		= require('gulp-sass');
-	jade 		= require('gulp-jade');
-	csso 		= require('gulp-csso');
-	sourcemaps  = require('gulp-sourcemaps');
-	uncss = require('gulp-uncss');
-gulp.task('unuse', function () {
-    return gulp.src('html/assets/css/kit.css')
-        .pipe(uncss({
-            html: ['index.html', 'posts/**/*.html', 'http://example.com']
-        }))
-        .pipe(gulp.dest('./out'));
-});
+var gulp        = require('gulp'),
+	sass 		= require('gulp-sass'),
+	pug 		= require('gulp-pug'),
+	sourcemaps  = require('gulp-sourcemaps'),
+	connect		= require('gulp-connect'),
+	minifyCSS	= require('gulp-minify-css'),
+	uglify 		= require('gulp-uglify'),
+	gutil 		= require('gulp-util');
+
+
+var pugSources,sassSources,jsSources;
+
+pugSources = './pug/**/*.pug';
+sassSources = './scss/**/*.scss';
+jsSources = './scripts/**/*.js';
+
 gulp.task('sass', function() {
 	gulp.src('./scss/kit.scss')
 		.pipe(sourcemaps.init())
 		.pipe(sass())
+		.on('error', gutil.log)
+		.pipe(minifyCSS())
 		.pipe(sourcemaps.write('./maps'))
 		.pipe(gulp.dest('./html/assets/css/'))
-		.pipe(browserSync.stream());
-});
-gulp.task('jade', function() {
-	var YOUR_LOCALS = {};
-	gulp.src('./jade/**/*.jade')
-	// gulp.src('./jade/includes/test/*.jade')
-		.pipe(jade({
-			locals: YOUR_LOCALS,
-			pretty: true
-		}))
-		.pipe(gulp.dest('././html'))
-		.pipe(browserSync.stream());
-});
-gulp.task('min', function () {
-    return gulp.src('./html/assets/css/kit.css')
-        .pipe(csso())
-        .pipe(gulp.dest('./html/assets/css/'));
-});
-gulp.task('serve', ['sass','jade'], function() {
-    browserSync.init({
-        server: "./html"
-    });
-	gulp.watch('./scss/**/*.scss', ['sass'] , reload);
-	gulp.watch('./jade/**/*.jade', ['jade'] , reload );
+		.pipe(connect.reload())
+
 });
 
-gulp.task('local', ['serve']);
+gulp.task('js',function(){
+	gulp.src([jsSources])
+		.pipe(sourcemaps.init())
+		.on('error', gutil.log)
+		.pipe(uglify())
+		.pipe(sourcemaps.write('./maps'))
+		.pipe(gulp.dest('./html/assets/js/'))
+		.pipe(connect.reload())
+})
+
+
+gulp.task('pug', function buildHTML() {
+	return gulp.src(pugSources)
+	// .pipe(pug({
+	//   // Your options in here.
+	// }))
+	.on('error', gutil.log)
+	.pipe(gulp.dest('././html'))
+	.pipe(connect.reload())
+});
+
+
+gulp.task('connect',function(){
+	connect.server({
+		root:	'./html/',
+		livereload:	true
+	});
+})
+
+gulp.task('watch',function(){
+	gulp.watch(sassSources, ['sass']);
+	gulp.watch(pugSources, ['pug']);
+	gulp.watch(jsSources, ['js']);
+})
+
+gulp.task('local', ['sass','pug','js','connect','watch']);
