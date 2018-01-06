@@ -11,8 +11,8 @@ const	gulp        = require('gulp'),
 
 let 	pugSources,sassSources,jsSources;
 
-pugSources = './pug/**/*.pug';
-sassSources = './scss/**/*.scss';
+pugSources = './pug/*.pug';
+sassSources = './scss/*.scss';
 jsSources = './scripts/**/*.js';
 
 gulp.task('sass', () => {
@@ -60,9 +60,9 @@ gulp.task('connect',() =>{
 })
 
 gulp.task('watch',() =>{
-	gulp.watch(sassSources, ['sass']);
-	gulp.watch(pugSources, ['pug']);
+	gulp.watch('./scss/**/*.scss', ['sass']);
+	gulp.watch('./pug/**/*.pug', ['pug']);
 	gulp.watch(jsSources, ['js']);
 })
 
-gulp.task('local', ['sass','pug','js','connect','watch']);
+gulp.task('local', ['sass','pug','js','watch','connect']);
