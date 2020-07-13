@@ -1,4 +1,4 @@
-# mrGalp
+# mr-gulp
 gulp starter for Front-End Developers
 
 
