@@ -1,33 +1,15 @@
 {
-  "name": "mrgulpcli",
-  "version": "0.1.0",
-  "description": "advance gulp project",
-  "main": "gulpfile.js",
-  "dependencies": {},
+  "name": "mr-galp",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:MostafaRastegar/mr-galp.git",
+  "author": "mostafa rastegar <m.rastegar991@gmail.com>",
+  "license": "MIT",
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-es2015": "^6.24.1",
-    "gulp": "^3.9.1",
-    "gulp-babel": "^7.0.0",
-    "gulp-connect": "^5.0.0",
-    "gulp-minify-css": "^1.2.4",
-    "gulp-pug": "^3.3.0",
-    "gulp-sass": "^3.1.0",
-    "gulp-sourcemaps": "^2.6.2",
-    "gulp-uglify": "^3.0.0",
-    "gulp-util": "^3.0.8"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/MostafaRastegar/mr-gulp-cli.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/MostafaRastegar/mr-gulp-cli/issues"
-  },
-  "homepage": "https://github.com/MostafaRastegar/mr-gulp-cli#readme"
+    "gulp": "3.9.1",
+    "gulp-connect": "^5.7.0",
+    "gulp-pug": "^4.0.1",
+    "gulp-sass": "^4.1.0",
+    "gulp-sourcemaps": "^2.6.5"
+  }
 }
