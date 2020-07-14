@@ -1,0 +1,13 @@
+{"version":3,"file":"../../footer/styles.css","sources":["footer/styles.scss"],"sourcesContent":["footer{\r\n  background: red;\r\n  div {\r\n    margin: 10px;\r\n  }\r\n}\r\n"],"names":[],"mappings":"AAAA,AAAA,MAAM,CAAA;EACJ,UAAU,EAAE,GAAG,GAIhB;EALD,AAEE,MAFI,CAEJ,GAAG,CAAC;IACF,MAAM,EAAE,IAAI,GACb"}
+footer {
+  background: red; }
+  footer div {
+    margin: 10px; }
+
+/*# sourceMappingURL=../maps/footer/styles.css.map */
+
+{"version":3,"file":"../../header/styles.css","sources":["header/styles.scss"],"sourcesContent":["header{\r\n  background: blue;\r\n}\r\n"],"names":[],"mappings":"AAAA,AAAA,MAAM,CAAA;EACJ,UAAU,EAAE,IAAI,GACjB"}
+header {
+  background: blue; }
+
+/*# sourceMappingURL=../maps/header/styles.css.map */
