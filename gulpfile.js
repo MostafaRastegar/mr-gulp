@@ -3,6 +3,7 @@ const gulp = require("gulp"),
   pug = require("gulp-pug"),
   sourcemaps = require("gulp-sourcemaps"),
   connect = require("gulp-connect");
+  concat = require('gulp-concat');
 
 const pugSources = "./src/components/**/*.pug";
 const sassSources = "./src/components/**/*.scss";
@@ -10,10 +11,21 @@ const jsSources = "./src/scripts/**/*.js";
 
 gulp.task("sass", () => {
   gulp
-    .src("./src/scss/kit.scss")
+    .src("./src/scss/*.scss")
     .pipe(sourcemaps.init())
     .pipe(sass())
     .pipe(sourcemaps.write("./maps"))
+    .pipe(gulp.dest("./public/assets/css/"))
+    .pipe(connect.reload());
+});
+
+gulp.task("sassComponenets", () => {
+  gulp
+    .src("./src/components/**/*.scss")
+    .pipe(sourcemaps.init())
+    .pipe(sass())
+    .pipe(sourcemaps.write("./maps"))
+    .pipe(concat('styles.css'))
     .pipe(gulp.dest("./public/assets/css/"))
     .pipe(connect.reload());
 });
@@ -36,13 +48,13 @@ gulp.task("sass", () => {
 
 gulp.task("pug", function buildHTML() {
   return gulp
-    .src(pugSources)
+    .src('./src/containers/*.pug')
     .pipe(
       pug({
         // Your options in here.
       })
     )
-    .pipe(gulp.dest("./public/"))
+    .pipe(gulp.dest("./public"))
     .pipe(connect.reload());
 });
 
@@ -55,9 +67,9 @@ gulp.task("connect", () => {
 
 gulp.task("watch", () => {
   gulp.watch("./src/scss/**/*.scss", ["sass"]);
-  gulp.watch(sassSources, ["sass"]);
+  gulp.watch("./src/components/**/*.scss", ["sassComponenets"]);
   gulp.watch("./src/**/*.pug", ["pug"]);
   // gulp.watch(jsSources, ["js"]);
 });
 
-gulp.task("start", ["sass", "pug", "connect", "watch"]);
+gulp.task("start", ["sass", "sassComponenets", "pug", "connect", "watch"]);
