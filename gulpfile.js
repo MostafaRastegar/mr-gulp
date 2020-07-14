@@ -4,19 +4,17 @@ const gulp = require("gulp"),
   sourcemaps = require("gulp-sourcemaps"),
   connect = require("gulp-connect");
 
-let pugSources, sassSources, jsSources;
-
-pugSources = "./pug/*.pug";
-sassSources = "./scss/*.scss";
-jsSources = "./scripts/**/*.js";
+const pugSources = "./src/components/**/*.pug";
+const sassSources = "./src/components/**/*.scss";
+const jsSources = "./src/scripts/**/*.js";
 
 gulp.task("sass", () => {
   gulp
-    .src("./scss/kit.scss")
+    .src("./src/scss/kit.scss")
     .pipe(sourcemaps.init())
     .pipe(sass())
     .pipe(sourcemaps.write("./maps"))
-    .pipe(gulp.dest("./html/assets/css/"))
+    .pipe(gulp.dest("./public/assets/css/"))
     .pipe(connect.reload());
 });
 
@@ -44,20 +42,21 @@ gulp.task("pug", function buildHTML() {
         // Your options in here.
       })
     )
-    .pipe(gulp.dest("././html"))
+    .pipe(gulp.dest("./public/"))
     .pipe(connect.reload());
 });
 
 gulp.task("connect", () => {
   connect.server({
-    root: "./html/",
+    root: "./public/",
     livereload: true,
   });
 });
 
 gulp.task("watch", () => {
-  gulp.watch("./scss/**/*.scss", ["sass"]);
-  gulp.watch("./pug/**/*.pug", ["pug"]);
+  gulp.watch("./src/scss/**/*.scss", ["sass"]);
+  gulp.watch(sassSources, ["sass"]);
+  gulp.watch("./src/**/*.pug", ["pug"]);
   // gulp.watch(jsSources, ["js"]);
 });
 
