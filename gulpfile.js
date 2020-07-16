@@ -9,11 +9,17 @@ const pugSources = "./src/components/**/*.pug";
 const sassSources = "./src/components/**/*.scss";
 const jsSources = "./src/scripts/**/*.js";
 
+const swallowError = (error) => {
+  console.log(error.toString())
+  this.emit('end')
+}
+
 gulp.task("sass", () => {
   gulp
     .src("./src/scss/*.scss")
     .pipe(sourcemaps.init())
     .pipe(sass())
+    .on('error', swallowError)
     .pipe(sourcemaps.write("./maps"))
     .pipe(gulp.dest("./public/assets/css/"))
     .pipe(connect.reload());
@@ -24,6 +30,7 @@ gulp.task("sassComponenets", () => {
     .src("./src/components/**/*.scss")
     .pipe(sourcemaps.init())
     .pipe(sass())
+    .on('error', swallowError)
     .pipe(sourcemaps.write("./maps"))
     .pipe(concat('styles.css'))
     .pipe(gulp.dest("./public/assets/css/"))
@@ -54,6 +61,7 @@ gulp.task("pug", function buildHTML() {
         // Your options in here.
       })
     )
+    .on('error', swallowError)
     .pipe(gulp.dest("./public"))
     .pipe(connect.reload());
 });
