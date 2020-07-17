@@ -1,0 +1,1 @@
+{"version":3,"sources":["footer/styles.scss","header/styles.scss"],"names":[],"mappings":"AAAA,OACE,cAAe,CAIhB,AALD,WAGI,WAAY,CACb,ACJH,OACE,eAAgB,CACjB","file":"../styles.css","sourcesContent":["footer{\r\n  background: red;\r\n  div {\r\n    margin: 10px;\r\n  }\r\n}\r\n","header{\r\n  background: blue;\r\n}\r\n"]}
