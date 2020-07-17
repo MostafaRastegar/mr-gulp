@@ -1,8 +1,8 @@
 {
   "name": "mr-galp",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "main": "index.js",
-  "repository": "git@github.com:MostafaRastegar/mr-galp.git",
+  "repository": "git@github.com:MostafaRastegar/mr-gulp.git",
   "author": "mostafa rastegar <m.rastegar991@gmail.com>",
   "license": "MIT",
   "devDependencies": {
