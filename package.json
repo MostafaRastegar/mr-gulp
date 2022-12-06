@@ -6,7 +6,7 @@
   "author": "mostafa rastegar <m.rastegar991@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "gulp": "3.9.1",
+    "gulp": "4.0.2",
     "gulp-concat": "^2.6.1",
     "gulp-connect": "^5.7.0",
     "gulp-cssnano": "^2.1.3",
